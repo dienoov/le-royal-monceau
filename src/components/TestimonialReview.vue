@@ -9,18 +9,25 @@
       <h2 class="font-serif font-medium text-4xl md:text-5xl mb-20 text-center">
         Guest Reviews
       </h2>
-      <article class="text-center mb-16">
+      <article class="text-center mb-8" v-if="this.reviews.length > this.currentReview">
         <h3 class="before:content-[open-quote] after:content-[close-quote]
             text-xl mb-8 font-medium">
-          Great hotel!
+          {{ this.reviews[currentReview].title }}
         </h3>
-        <p class="text-neutral-900/50 mb-8">
-          Wonderful and helpful staff and an excellent location!
+        <p class="text-neutral-900/50 mb-8 lg:px-32">
+          {{ this.reviews[currentReview].message }}
         </p>
         <h4 class="font-medium text-neutral-900/70">
-          Adam Levine
+          {{ this.reviews[currentReview].name }}
         </h4>
       </article>
+      <ul class="flex justify-center mb-8">
+        <li v-for="key in reviews.length" :key="key">
+          <button type="button" class="w-3 h-3 mx-1"
+              :class="this.currentReview === key - 1 ? 'bg-neutral-900' : 'bg-neutral-900/20'"
+              @click="this.currentReview = key - 1"></button>
+        </li>
+      </ul>
       <button type="button" class="bg-neutral-800 hover:bg-neutral-900 ease duration-150
           text-neutral-50 w-48 mx-auto block px-4 py-2 mt-4" @click="this.modal.show">
         Write a Review
@@ -71,8 +78,11 @@
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
 import { Modal } from 'flowbite';
+import { initializeApp } from 'firebase/app';
+import {
+  getDatabase, ref, query, orderByKey, onValue, set, limitToLast,
+} from 'firebase/database';
 
 export default {
   name: 'TestimonialReview',
@@ -89,6 +99,17 @@ export default {
         message: '',
       },
       modal: null,
+      firebaseConfig: {
+        apiKey: 'AIzaSyAEt1numJKQz8_c1dmryz9vRlhCSxgYQOE',
+        authDomain: 'le-royal-monceau.firebaseapp.com',
+        projectId: 'le-royal-monceau',
+        storageBucket: 'le-royal-monceau.appspot.com',
+        messagingSenderId: '617843012160',
+        appId: '1:617843012160:web:dfad04686a24fed0e065a5',
+        databaseURL: 'https://le-royal-monceau-default-rtdb.asia-southeast1.firebasedatabase.app',
+      },
+      reviews: [],
+      currentReview: 0,
     };
   },
   methods: {
@@ -113,16 +134,43 @@ export default {
     },
     submitForm() {
       if (this.validateForm()) {
+        this.writeReview();
+
         this.form.name = '';
         this.form.title = '';
         this.form.message = '';
+
         this.modal.hide();
       }
+    },
+    writeReview() {
+      set(ref(getDatabase(), `reviews/${new Date().getTime()}`), {
+        name: this.form.name,
+        title: this.form.title,
+        message: this.form.message,
+      });
+
+      this.currentReview = 0;
     },
   },
   mounted() {
     this.modal = new Modal(document.getElementById('review'), {
       backdrop: 'static',
+    });
+
+    initializeApp(this.firebaseConfig);
+
+    onValue(query(ref(getDatabase(), 'reviews'), orderByKey(), limitToLast(5)), (snapshot) => {
+      this.reviews = [];
+
+      snapshot.forEach((childSnapshot) => {
+        if (childSnapshot.val()) {
+          this.reviews.unshift({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        }
+      });
     });
   },
 };
