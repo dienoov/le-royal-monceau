@@ -5,6 +5,7 @@ import ContactUs from './components/ContactUs.vue';
 import FooterSection from './components/FooterSection.vue';
 import AboutUs from './components/AboutUs.vue';
 import RoomSuite from './components/RoomSuite.vue';
+import TestimonialReview from './components/TestimonialReview.vue';
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import RoomSuite from './components/RoomSuite.vue';
     <HeroSlider />
     <AboutUs />
     <RoomSuite />
+    <TestimonialReview />
     <ContactUs />
   </main>
   <footer class="bg-neutral-900 text-neutral-50">
