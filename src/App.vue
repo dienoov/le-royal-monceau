@@ -1,6 +1,7 @@
 <script setup>
 import NavigationBar from './components/NavigationBar.vue';
 import HeroSlider from './components/HeroSlider.vue';
+import ContactUs from './components/ContactUs.vue';
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import HeroSlider from './components/HeroSlider.vue';
   </header>
   <main>
     <HeroSlider />
+    <ContactUs />
   </main>
 </template>
 
