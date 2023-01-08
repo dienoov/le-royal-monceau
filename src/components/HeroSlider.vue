@@ -3,7 +3,7 @@
     <div class="relative h-[calc(100vh-4rem)] overflow-hidden">
       <div class="absolute top-0 left-0 w-full h-[calc(100vh-4rem)] bg-neutral-900/30
           flex flex-col justify-center items-center z-30 text-neutral-50">
-        <p class="uppercase text=xs md:text-sm mb-4 md:mb-8 font-medium tracking-widest">
+        <p class="uppercase text-xs md:text-sm mb-4 md:mb-8 font-medium tracking-widest">
           Welcome To
         </p>
         <h1 class="font-serif font-medium text-2xl md:text-6xl mb-4 md:mb-8">
@@ -13,38 +13,16 @@
           A place to experience and enjoy your life
         </p>
       </div>
-      <div class="hidden duration-1000 ease" data-carousel-item="active">
-        <img src="../assets/slides/slide-1.jpg" class="absolute block w-full
-            -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover h-full" alt="...">
-      </div>
-      <div class="hidden duration-1000 ease" data-carousel-item>
-        <img src="../assets/slides/slide-2.jpg" class="absolute block w-full
-            -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover h-full" alt="...">
-      </div>
-      <div class="hidden duration-1000 ease" data-carousel-item>
-        <img src="../assets/slides/slide-3.jpg" class="absolute block w-full
-            -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover h-full" alt="...">
-      </div>
-      <div class="hidden duration-1000 ease" data-carousel-item>
-        <img src="../assets/slides/slide-4.jpg" class="absolute block w-full
-            -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover h-full" alt="...">
-      </div>
-      <div class="hidden duration-1000 ease" data-carousel-item>
-        <img src="../assets/slides/slide-5.jpg" class="absolute block w-full
+      <div class="hidden duration-1000 ease" :data-carousel-item="slide.id === 0 ? 'active' : ''"
+          v-for="slide in slides" :key="slide.id">
+        <img :src="slide.image" class="absolute block w-full
             -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover h-full" alt="...">
       </div>
     </div>
     <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
       <button type="button" class="w-3 h-3" aria-current="false"
-          aria-label="Slide 1" data-carousel-slide-to="0"></button>
-      <button type="button" class="w-3 h-3" aria-current="false"
-          aria-label="Slide 2" data-carousel-slide-to="1"></button>
-      <button type="button" class="w-3 h-3" aria-current="false"
-          aria-label="Slide 3" data-carousel-slide-to="2"></button>
-      <button type="button" class="w-3 h-3" aria-current="false"
-          aria-label="Slide 4" data-carousel-slide-to="3"></button>
-      <button type="button" class="w-3 h-3" aria-current="false"
-          aria-label="Slide 5" data-carousel-slide-to="4"></button>
+          :aria-label="`Slide ${slide.id + 1}`" :data-carousel-slide-to="slide.id"
+          v-for="slide in slides" :key="slide.id"></button>
     </div>
     <button type="button" class="absolute top-0 left-0 z-30 flex items-center
         justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -67,8 +45,34 @@
 // eslint-disable-next-line no-unused-vars
 import { Carousel } from 'flowbite';
 
+import slide1 from '../assets/slides/slide-1.jpg';
+import slide2 from '../assets/slides/slide-2.jpg';
+import slide3 from '../assets/slides/slide-3.jpg';
+import slide4 from '../assets/slides/slide-4.jpg';
+import slide5 from '../assets/slides/slide-5.jpg';
+
 export default {
   name: 'HeroSlider',
+  data() {
+    return {
+      slides: [{
+        id: 0,
+        image: slide1,
+      }, {
+        id: 1,
+        image: slide2,
+      }, {
+        id: 2,
+        image: slide3,
+      }, {
+        id: 3,
+        image: slide4,
+      }, {
+        id: 4,
+        image: slide5,
+      }],
+    };
+  },
 };
 </script>
 
