@@ -3,13 +3,15 @@
     <div class="relative h-[calc(100vh-4rem)] overflow-hidden">
       <div class="absolute top-0 left-0 w-full h-[calc(100vh-4rem)] bg-neutral-900/30
           flex flex-col justify-center items-center z-30 text-neutral-50">
-        <p class="uppercase text-xs md:text-sm mb-4 md:mb-8 font-medium tracking-widest">
+        <p class="uppercase text-xs md:text-sm mb-4 md:mb-8 font-medium tracking-widest"
+           data-aos="fade-down">
           Welcome To
         </p>
-        <h1 class="font-serif font-medium text-2xl md:text-6xl mb-4 md:mb-8">
+        <h1 class="font-serif font-medium text-2xl md:text-6xl mb-4 md:mb-8"
+            data-aos="fade-down" data-aos-delay="150">
           Le Royal Monceau
         </h1>
-        <p class="text-xs md:text-sm">
+        <p class="text-xs md:text-sm" data-aos="fade-down" data-aos-delay="300">
           A place to experience and enjoy your life
         </p>
       </div>

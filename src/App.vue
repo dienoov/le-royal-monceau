@@ -1,4 +1,6 @@
 <script setup>
+import AOS from 'aos';
+import { onMounted } from 'vue';
 import NavigationBar from './components/NavigationBar.vue';
 import HeroSlider from './components/HeroSlider.vue';
 import ContactUs from './components/ContactUs.vue';
@@ -6,6 +8,10 @@ import FooterSection from './components/FooterSection.vue';
 import AboutUs from './components/AboutUs.vue';
 import RoomSuite from './components/RoomSuite.vue';
 import TestimonialReview from './components/TestimonialReview.vue';
+
+onMounted(() => {
+  AOS.init();
+});
 </script>
 
 <template>

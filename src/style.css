@@ -30,6 +30,10 @@
     font-display: swap;
 }
 
+html, body {
+    @apply overflow-x-clip;
+}
+
 body {
     @apply text-neutral-900 bg-neutral-50;
 }

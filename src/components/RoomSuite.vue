@@ -2,14 +2,15 @@
   <article class="grid grid-cols-1 lg:grid-cols-2 justify-center items-center mx-auto">
     <div class="lg:px-16 mb-8 md:mb-0 py-20 lg:py-8 lg:max-w-2xl w-full mx-auto lg:ml-auto lg:mr-0">
       <p class="uppercase text-xs md:text-sm mb-4 font-medium tracking-widest opacity-50
-          text-center lg:text-left mb-4">
+          text-center lg:text-left mb-4" data-aos="fade-down">
         Discover
       </p>
-      <h2 class="font-serif font-medium text-4xl md:text-5xl mb-16 text-center lg:text-left">
+      <h2 class="font-serif font-medium text-4xl md:text-5xl mb-16 text-center lg:text-left"
+          data-aos="fade-down">
         Rooms & Suites
       </h2>
       <ul class="grid md:grid-cols-2 lg:grid-cols-1 w-full lg:max-h-52
-          lg:overflow-y-scroll scrollbar">
+          lg:overflow-y-scroll scrollbar" data-aos="fade-up">
         <li class="flex items-center p-3 ease duration-150
             hover:bg-neutral-200 hover:cursor-pointer" :class="room.active ? 'bg-neutral-200' : ''"
             v-for="room in rooms" :key="room.id" @click="() => setActiveRoom(room)">
@@ -30,7 +31,8 @@
         </li>
       </ul>
     </div>
-    <img src="" alt="" class="h-[32rem] w-[48rem] object-cover hidden lg:block" ref="image">
+    <img src="" alt="" class="h-[32rem] w-[48rem] object-cover hidden lg:block" ref="image"
+         data-aos="fade-left">
   </article>
 </template>
 

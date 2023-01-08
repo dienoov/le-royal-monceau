@@ -1,7 +1,7 @@
 <template>
   <article class="bg-neutral-100 py-16 px-8 md:py-24">
     <div class="items-center px-8 py-16 max-w-5xl mx-auto bg-neutral-50
-        shadow-lg shadow-neutral-500/5">
+        shadow-lg shadow-neutral-500/5" data-aos="zoom-out">
       <p class="uppercase text-xs md:text-sm mb-4 font-medium
           tracking-widest opacity-50 text-center">
         Testimonial
