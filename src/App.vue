@@ -2,6 +2,7 @@
 import NavigationBar from './components/NavigationBar.vue';
 import HeroSlider from './components/HeroSlider.vue';
 import ContactUs from './components/ContactUs.vue';
+import FooterSection from './components/FooterSection.vue';
 </script>
 
 <template>
@@ -12,6 +13,9 @@ import ContactUs from './components/ContactUs.vue';
     <HeroSlider />
     <ContactUs />
   </main>
+  <footer class="bg-neutral-900 text-neutral-50">
+    <FooterSection />
+  </footer>
 </template>
 
 <style scoped>
