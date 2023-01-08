@@ -9,7 +9,20 @@
     font-display: swap;
 }
 
+@font-face {
+    src: url("./fonts/Beatrice-Medium.ttf");
+    font-family: "Beatrice";
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("./fonts/Butler-Medium.woff");
+    font-family: "Butler";
+    font-weight: 500;
+    font-display: swap;
+}
+
 body {
-    font-family: "Beatrice", sans-serif;
     @apply text-neutral-900 bg-neutral-50;
 }
