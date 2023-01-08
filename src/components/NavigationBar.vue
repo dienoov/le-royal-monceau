@@ -1,5 +1,5 @@
 <template>
-  <header class="navigation-bar flex justify-between items-center relative h-16">
+  <div class="flex justify-between items-center relative h-16">
     <nav class="flex items-center">
       <button type="button" @click="toggleMenu" class="block w-8 h-8 mt-2 ml-4 lg:hidden">
         <span class="block bg-neutral-900 w-5 h-0.5 relative
@@ -16,19 +16,19 @@
           lg:static lg:top-auto lg:flex-row lg:items-start lg:w-auto lg:ml-8 lg:mt-0 lg:pt-2
           -translate-x-full ease duration-300 lg:translate-x-0">
         <li class="lg:mx-6">
-          <a href="#" class="block text-lg p-4 w-full lg:p-0">Rooms & Suites</a>
+          <a href="#" class="block text-sm p-4 w-full lg:p-0">Rooms & Suites</a>
         </li>
         <li class="lg:mx-6">
-          <a href="#" class="block text-lg p-4 w-full lg:p-0">Dining</a>
+          <a href="#" class="block text-sm p-4 w-full lg:p-0">Dining</a>
         </li>
         <li class="lg:mx-6">
-          <a href="#" class="block text-lg p-4 w-full lg:p-0">Events</a>
+          <a href="#" class="block text-sm p-4 w-full lg:p-0">Events</a>
         </li>
         <li class="lg:mx-6">
-          <a href="#" class="block text-lg p-4 w-full lg:p-0">Offers</a>
+          <a href="#" class="block text-sm p-4 w-full lg:p-0">Offers</a>
         </li>
         <li class="lg:mx-6">
-          <a href="#" class="block text-lg p-4 w-full lg:p-0">Gallery</a>
+          <a href="#" class="block text-sm p-4 w-full lg:p-0">Gallery</a>
         </li>
       </ul>
     </nav>
@@ -40,7 +40,7 @@
         EN
       </button>
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
