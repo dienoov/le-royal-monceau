@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "firebase": "^9.15.0",
+    "firebase": "^10.11.0",
     "flowbite": "^1.6.0",
     "vue": "^3.2.45"
   },
